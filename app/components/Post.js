@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { useState } from 'react'
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai'
 import { FaRegComment } from 'react-icons/fa'
-import { useAppContext } from '../context/context'
 
 const Post = ({
   index,
@@ -14,19 +13,14 @@ const Post = ({
   likes,
   likers,
 }) => {
-  const { likePost, currentWalletAddress } = useAppContext()
-  const [liked, setLiked] = useState(likers.includes(currentWalletAddress))
+  const [liked, setLiked] = useState(false)
 
   const postDate = new Date(parseInt(timestamp)).toLocaleString('en-US', {
     month: 'short',
     day: 'numeric',
   })
 
-  const handleLikeClick = async () => {
-    await likePost(index)
-
-    setLiked(true)
-  }
+  const handleLikeClick = async () => {}
 
   return (
     <div className='card d-flex'>

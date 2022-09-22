@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { useAppContext } from '../context/context'
 
 const CreatePost = () => {
   const [title, setTitle] = useState('')
@@ -10,7 +9,7 @@ const CreatePost = () => {
 
   const router = useRouter()
 
-  const { createBlog } = useAppContext()
+  const createBlog = async (title, tag, blogContent) => {}
 
   const handleSubmit = async () => {
     if (!tag || !title || !blogContent) {
